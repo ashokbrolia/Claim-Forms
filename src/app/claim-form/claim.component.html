@@ -1,0 +1,209 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <div class="text-center">
+      <h1>Claim Form</h1>
+      <h1>EEOC v. GMRI, INC. (“SEASONS 52”), Case No. 15-cv-20561</h1>
+    </div>
+    <br />
+    <form (ngSubmit)="onSubmit()" #claimForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="model.name" name="name"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" id="phone"
+               [(ngModel)]="model.phone" name="phone"
+               #phone="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email"
+               [(ngModel)]="model.email" name="email"
+               #email="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="ssn">SSN</label>
+        <input type="password" class="form-control" id="ssn"
+               [(ngModel)]="model.ssn" name="ssn" #ssn="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="text" class="form-control" id="dob"
+               [(ngModel)]="model.dob" name="dob" #dob="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="iscorrectaddress">Gender</label><br>
+        <input type="radio" [(ngModel)]="model.sex" name="sex" value="male">Male
+        <input type="radio" [(ngModel)]="model.sex" name="sex" value="female">Female
+      </div>
+
+      <div class="form-group">
+        <label for="iscorrectaddress"><strong>1.</strong> Was this letter addressed to your correct address?</label><br>
+        <input type="radio" [(ngModel)]="model.iscorrectaddress" name="iscorrectaddress" value="yes">Yes
+        <input type="radio" [(ngModel)]="model.iscorrectaddress" name="iscorrectaddress" value="no">No
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address"
+               [(ngModel)]="model.address" name="address" #address="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="iscorrectaddress">
+          <strong>2.</strong> Did you apply for a front of house position (Host/ess, Server, Bartender, Foodrunner) OR
+          back of house position (Steward, Prep Cook, Line Cook) to at least one of the Seasons 52
+          restaurant locations listed below?
+        </label><br>
+        <input type="radio" [(ngModel)]="model.isprevapply" name="isprevapply" value="yes">Yes
+        <input type="radio" [(ngModel)]="model.isprevapply" name="isprevapply" value="no">No
+        <br><br>
+        <!--<input type="checkbox" ng-model="all"> Check all<br><br>-->
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <input type="checkbox" ng-checked="all">Tampa, FL.<br>
+              <input type="checkbox" ng-checked="all">King of Prussia, PA<br>
+              <input type="checkbox" ng-checked="all">Schaumberg, IL<br>
+              <input type="checkbox" ng-checked="all">Costa Mesa, CA<br>
+              <input type="checkbox" ng-checked="all">Plano, TX<br>
+              <input type="checkbox" ng-checked="all">Phoenix, TX<br>
+              <input type="checkbox" ng-checked="all">Coral Gables, FL<br>
+              <input type="checkbox" ng-checked="all">Indianapolis, IN<br>
+              <input type="checkbox" ng-checked="all">North Bethesda, MD<br>
+              <input type="checkbox" ng-checked="all">McLean, VA<br>
+              <input type="checkbox" ng-checked="all">Naples, FL<br>
+              <input type="checkbox" ng-checked="all">Naples, FL<br>
+              <input type="checkbox" ng-checked="all">Jacksonville, FL<br>
+
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" ng-checked="all">Kansas City, MO<br>
+              <input type="checkbox" ng-checked="all">Garden City, NY<br>
+              <input type="checkbox" ng-checked="all">Oak Brook, IL<br>
+              <input type="checkbox" ng-checked="all">Dallas, TX<br>
+              <input type="checkbox" ng-checked="all">San Diego, CA<br>
+              <input type="checkbox" ng-checked="all">Los Angeles, CA<br>
+              <input type="checkbox" ng-checked="all">Sacramento, CA<br>
+              <input type="checkbox" ng-checked="all">Norwood, OH<br>
+              <input type="checkbox" ng-checked="all">Birmingham, AL<br>
+              <input type="checkbox" ng-checked="all">Santa Monica, CA<br>
+              <input type="checkbox" ng-checked="all">Houston, TX<br>
+              <input type="checkbox" ng-checked="all">Burlington, MA<br>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" ng-checked="all">Chicago, IL<br>
+              <input type="checkbox" ng-checked="all">Chestnut Hill, MA<br>
+              <input type="checkbox" ng-checked="all">San Diego, CA<br>
+              <input type="checkbox" ng-checked="all">Houston, TX<br>
+              <input type="checkbox" ng-checked="all">Edison, NJ<br>
+              <input type="checkbox" ng-checked="all">Memphis, TN<br>
+              <input type="checkbox" ng-checked="all">Columbia, MD<br>
+              <input type="checkbox" ng-checked="all">Lone Tree, CO<br>
+              <input type="checkbox" ng-checked="all">Sarasota, FL<br>
+              <input type="checkbox" ng-checked="all">Princeton, NJ<br>
+              <input type="checkbox" ng-checked="all">Bridgewater, NJ<br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><strong>a. If NO:</strong> you can disregard this claim form and do not need to do anything.</label><br>
+      </div>
+
+      <div class="form-group">
+        <label><strong>b. If YES:</strong></label><br>
+        <label for="interviewed">
+          <strong>i.</strong> Did you go to the restaurant, either to submit your application or for
+          an interview?
+        </label><br>
+        <input type="radio" [(ngModel)]="model.interviewed" name="interviewed" value="yes">Yes
+        <input type="radio" [(ngModel)]="model.interviewed" name="interviewed" value="no">No
+        <br><br>
+        <label for="agefourtyorover">
+          <strong>ii.</strong> Were you age 40 or over at the time you applied?
+        </label><br>
+        <input type="radio" [(ngModel)]="model.agefourtyorover" name="agefourtyorover" value="yes">Yes
+        <input type="radio" [(ngModel)]="model.agefourtyorover" name="agefourtyorover" value="no">No
+
+        <br><br>
+        <label for="fronthouse">
+          <strong>iii.</strong> Did you apply for a front of house position (Host/ess, Server,
+          Bartender, Foodrunner) or a back of house position (Steward, Prep,
+          Cook, Line Cook)
+        </label><br>
+        <input type="radio" [(ngModel)]="model.fronthouse" name="fronthouse" value="yes">Yes
+        <input type="radio" [(ngModel)]="model.fronthouse" name="fronthouse" value="no">No
+        <p>
+          <em>
+            *You may select either Front of House or Back of House, BUT NOT
+            BOTH. If you applied for both positions, you should select the one that
+            you believe you were more qualified for.
+          </em>
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="previouslyhired"><strong>3.</strong> Were you hired by any Seasons 52 restaurant?</label><br>
+        <input type="radio" [(ngModel)]="model.previouslyhired" name="previouslyhired" value="yes">Yes
+        <input type="radio" [(ngModel)]="model.previouslyhired" name="previouslyhired" value="no">No
+      </div>
+      <br><br>
+          <p>
+            <input type="checkbox" checked >
+            <strong>
+              <em>
+                I declare under penalty of perjury that the above information is true and correct to the best of my
+                knowledge and recollection.
+              </em>
+            </strong>
+          </p>
+      <br><br>
+      <div class="form-group">
+        <label for="signature">Digital Signature</label>
+        <input type="text" class="form-control" id="signature"
+               required
+               [(ngModel)]="model.signature" name="signature"
+               #signature="ngModel">
+        <div [hidden]="signature.valid || signature.pristine"
+             class="alert alert-danger">
+          Signature is required
+        </div>
+      </div>
+      <!--<div class="form-group">
+    <label for="state">State</label>
+    <select class="form-control" id="state"
+            required
+            [(ngModel)]="model.state" name="state"
+            #state="ngModel">
+      <option *ngFor="let sta of states" [value]="sta">{{sta}}</option>
+    </select>
+    <div [hidden]="state.valid || state.pristine" class="alert alert-danger">
+      State is required
+    </div>
+  </div>-->
+
+      <button type="submit" class="btn btn-success" [disabled]="!claimForm.form.valid">Submit</button>
+      <!--<button type="button" class="btn btn-default" (click)="newForm(); claimForm.reset()">New Form</button>-->
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>Successfully submitted..</h2>
+    <!--<button class="btn btn-primary" (click)="submitted=false">New</button>-->
+  </div>
+  <br>
+  <br>
+</div>

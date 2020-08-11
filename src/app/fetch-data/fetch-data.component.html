@@ -1,0 +1,25 @@
+<h1>Data List</h1>
+
+<p>This page demonstrates fetching data from the server.</p>
+
+<p *ngIf="!claimforms"><em>Loading...</em></p>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="claimforms">
+    <tr *ngFor="let claimform of claimforms">
+      <td>{{ claimform.name }}</td>
+      <td>{{ claimform.phone }}</td>
+      <td>{{ claimform.email }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+
